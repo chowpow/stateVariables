@@ -79,3 +79,21 @@ boolean mouseOverButtonTwo() {
   (mouseY < buttonTwoBottom));
 }
   
+void mousePressed() {
+  
+  if (mouseOverButtonOne()) {
+    background(255, 0, 0);
+    state = 1;
+  }
+  
+  if (mouseOverButtonTwo()) {
+    background(0, 255, 0);
+    state = 2;
+  }
+}
+
+void keyPressed() {
+  if (key == 'r' || key == 'R') {
+    state = 0;
+  }
+}
