@@ -14,4 +14,9 @@ void draw() {
     displayButtonTwo();
     gameText();
   }
+  
+  if (state == 1) {
+    background(255, 0, 0);
+    singlePlayerText();
+  }
 }
