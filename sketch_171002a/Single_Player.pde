@@ -1,5 +1,5 @@
 PImage rock, paper, scissors;
-int yourScore, computerScore, playerChoice;
+int playerSelection;
 String singlePlayerScore, singlePlayerInstructions;
 
 void singlePlayerText() {
@@ -8,10 +8,7 @@ void singlePlayerText() {
   textSize(20);
   text(singlePlayerScore, 100, 50);
   text(singlePlayerInstructions, 150, 650);
-  
-  
-  
-  
+    
 }
 
 
@@ -21,18 +18,18 @@ void keyReleased() {
     background(224, 25, 25);
     if (key == '1') {
       println("rock");
-      image(rock, width / 2, height / 2, rock.width * 0.05, rock.height * 0.05);
-      playerChoice = 1;
+      image(rock, (width / 2) - rock.width * 0.05, (height / 2) - rock.height * 0.05, rock.width * 0.05, rock.height * 0.05);
+      playerSelection = 1;
     }
     else if (key == '2') {
       println("paper");
-      image(paper, width / 2, 500, paper.width * 0.2, paper.height * 0.2);
-      playerChoice = 2;
+      image(paper, (width / 2) - paper.width * 0.2, height / 2, paper.width * 0.2, paper.height * 0.2);
+      playerSelection = 2;
     }
     else if (key == '3') {
       println("scissors");
-      image(scissors, width / 2, 300, scissors.width * 0.2, scissors.height * 0.2);
-      playerChoice = 3;
+      image(scissors, (width / 2) - scissors.width * 0.2, (height / 2) + scissors.height * 0.2, scissors.width * 0.2, scissors.height * 0.2);
+      playerSelection = 3;
     } 
     else {
       println("error");
@@ -44,7 +41,31 @@ int computerChoice() {
   return int(random(1, 3));
 }
 
-int decideWinner(int playerScore, int computerScore) {
+int decideWinner(int playerChoice, int computerChoice) {
+  // 1 = player wins 2 = computer wins 3 = tie
+  if (playerChoice == computerChoice) {
+    return 3;
+  }
+  else if (playerChoice == 2 && computerChoice == 1) {
+    return 1;
+  }
+  else if (playerChoice == 1 && computerChoice == 2) {
+    return 2;
+  }
+  else if (playerChoice == 2 && computerChoice == 3) {
+    return 2;
+  }
+  else if (playerChoice == 3 && computerChoice == 2) {
+    return 1;
+  }
+  else if (playerChoice == 1 && computerChoice == 2) {
+    return 1;
+  }
+  else if (playerChoice == 3 && computerChoice == 1) {
+    return 2;
+  }
+  return 0;
+}
   
 
 
