@@ -22,7 +22,6 @@ void draw() {
   }
   
   if (state == 1) {
-    background(224, 25, 25);
     singlePlayerText();
   }
 }
