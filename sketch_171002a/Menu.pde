@@ -21,6 +21,7 @@ void gameText() {
   text(buttonOneText, width / 2, 360);
   text(buttonTwoText, width / 2, 460);
   
+  
 }
 
 void displayButtonOne() {
@@ -82,7 +83,7 @@ boolean mouseOverButtonTwo() {
 void mousePressed() {
   
   if (mouseOverButtonOne()) {
-    background(255, 0, 0);
+    background(200, 50, 50);
     state = 1;
   }
   

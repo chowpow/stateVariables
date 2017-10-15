@@ -1,5 +1,6 @@
 PImage rock, paper, scissors;
 int playerSelection, result;
+float rockScale, papSciScale, rockOffset, papSciOffset;
 String singlePlayerScore, singlePlayerInstructions;
 
 void singlePlayerText() {
@@ -15,15 +16,15 @@ void singlePlayerText() {
 
 void keyReleased() {
   if (state == 1) {
-    background(224, 25, 25);
+    background(200, 50, 50);
     if (key == '1') {
       println("player: rock");
-      image(rock, (width / 2) - rock.width * 0.05, (height / 2) - rock.height * 0.05, rock.width * 0.05, rock.height * 0.05);
+      drawRockPlayerOne();
       playerSelection = 1;
     }
     else if (key == '2') {
       println("player: paper");
-      image(paper, (width / 2) - paper.width * 0.2, height / 2, paper.width * 0.2, paper.height * 0.2);
+      drawPaperPlayerOne();
       playerSelection = 2;
     }
     else if (key == '3') {
@@ -35,7 +36,6 @@ void keyReleased() {
       println("error");
     }
   }
-  
   computerChoice();
   
   if (computerChoice() == 1) {
@@ -89,6 +89,13 @@ int decideWinner(int playerChoice, int computerChoice) {
   return 0;
 }
   
+void drawRockPlayerOne() {
+  image(rock, (width / 2) - rockOffset, (height / 2) - rock.height * rockScale, rock.width * rockScale, rock.height * rockScale);
+}
+
+void drawPaperPlayerOne() {
+  image(paper,(width / 2) - papSciOffset, height / 2, paper.width * papSciScale, paper.height * papSciScale);
+}
 
 
 
