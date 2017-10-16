@@ -29,7 +29,6 @@ void keyReleased() {
     }
     else if (key == '3') {
       println("player: scissors");
-      image(scissors, (width / 2) - scissors.width * 0.2, (height / 2) + scissors.height * 0.2, scissors.width * 0.2, scissors.height * 0.2);
       playerSelection = 3;
     } 
     else {
@@ -69,24 +68,33 @@ int decideWinner(int playerChoice, int computerChoice) {
     
   }
   else if (playerChoice == 2 && computerChoice == 1) {
+    println("player wins");
     return 1;
   }
   else if (playerChoice == 1 && computerChoice == 2) {
+    println("computer wins");
     return 2;
   }
   else if (playerChoice == 2 && computerChoice == 3) {
+    println("computer wins");
     return 2;
   }
   else if (playerChoice == 3 && computerChoice == 2) {
+    println("player wins");
     return 1;
   }
   else if (playerChoice == 1 && computerChoice == 2) {
+    println("player wins");
     return 1;
   }
   else if (playerChoice == 3 && computerChoice == 1) {
+    println("computer wins");
     return 2;
   }
-  return 0;
+  else {
+    println("error");
+    return 0;
+  }
 }
   
 void drawRockPlayerOne() {
@@ -96,6 +104,25 @@ void drawRockPlayerOne() {
 void drawPaperPlayerOne() {
   image(paper,(width / 2) - papSciOffset, height / 2, paper.width * papSciScale, paper.height * papSciScale);
 }
+
+void drawScissorsPlayerOne() {
+  image(scissors, (width / 2) - scissors.width * 0.2, (height / 2) + scissors.height * 0.2, scissors.width * 0.2, scissors.height * 0.2);
+}
+
+void drawRockPlayerTwo() {
+  image(rock, (width / 2) + rockOffset, (height / 2) - rock.height * rockScale, rock.width * rockScale, rock.height * rockScale);
+}
+
+void drawPaperPlayerTwo() {
+  image(paper,(width / 2) + papSciOffset, height / 2, paper.width * papSciScale, paper.height * papSciScale);
+}
+
+void drawScissorsPlayerTwo() {
+  image(scissors, (width / 2) + scissors.width * 0.2, (height / 2) + scissors.height * 0.2, scissors.width * 0.2, scissors.height * 0.2);
+}
+
+  
+  
 
 
 
