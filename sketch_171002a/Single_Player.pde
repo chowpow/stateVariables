@@ -11,7 +11,6 @@ void singlePlayerText() {
 }
 
 void keyReleased() {
-  result = decideWinner(playerSelection, computerChoice());
 
   //the player plays, 1 for rock 2 for paper 3 for scissors
   background(200, 50, 50);
@@ -27,11 +26,13 @@ void keyReleased() {
   }
 
   computerTurn();
+  result = decideWinner(playerSelection, computerChoice());
   resultOfTurn();
 
   //if the computer scores 5 the game ends
   if (computerScore == 5) {
     state = 2;
+    computerScore = 0;
   }
 }
 
@@ -98,7 +99,6 @@ int decideWinner(int playerChoice, int computerChoice) {
 }
 
 //draws all the images
-
 void drawRockPlayerOne() {
   image(rock, (width / 2) - rockOffset, (height / 2), rock.width * rockScale, rock.height * rockScale);
 }

@@ -6,7 +6,7 @@ void gameText() {
   //game text of the menu screen
 
   gameTitle = "Rock Paper Scissors";
-  buttonOneText = "God Mode";
+  buttonOneText = "Enter if you dare";
   
   fill(255, 0, 0);
   textSize(45);
@@ -60,5 +60,6 @@ void mousePressed() {
 void keyPressed() {
   if (key == 'r') {
     state = 0;
+    computerScore = 0;
   }
 }

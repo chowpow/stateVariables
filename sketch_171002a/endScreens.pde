@@ -3,7 +3,6 @@ String endScreen, rToMenu;
 void endScreenText() {
   //text of the end screen
   background(0);
-
   fill(255);
   textSize(25);
   endScreen = "You Lost";
