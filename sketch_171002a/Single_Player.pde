@@ -79,7 +79,7 @@ int decideWinner(int playerChoice, int computerChoice) {
 }
 
 void drawRockPlayerOne() {
-  image(rock, (width / 2) - rockOffset, (height / 2) - rock.height * rockScale, rock.width * rockScale, rock.height * rockScale);
+  image(rock, (width / 2) - rockOffset, (height / 2), rock.width * rockScale, rock.height * rockScale);
 }
 
 void drawPaperPlayerOne() {
@@ -87,11 +87,11 @@ void drawPaperPlayerOne() {
 }
 
 void drawScissorsPlayerOne() {
-  image(scissors, (width / 2) - scissors.width * 0.2, (height / 2) + scissors.height * 0.2, scissors.width * 0.2, scissors.height * 0.2);
+  image(scissors, (width / 2) - scissors.width * 0.2, (height / 2) , scissors.width * 0.2, scissors.height * 0.2);
 }
 
 void drawRockPlayerTwo() {
-  image(rock, (width / 2) + rockOffset, (height / 2) - rock.height * rockScale, rock.width * rockScale, rock.height * rockScale);
+  image(rock, (width / 2) + rockOffset, (height / 2), rock.width * rockScale, rock.height * rockScale);
 }
 
 void drawPaperPlayerTwo() {
@@ -99,7 +99,7 @@ void drawPaperPlayerTwo() {
 }
 
 void drawScissorsPlayerTwo() {
-  image(scissors, (width / 2) + scissors.width * 0.2, (height / 2) + scissors.height * 0.2, scissors.width * 0.2, scissors.height * 0.2);
+  image(scissors, (width / 2) + scissors.width * 0.2, (height / 2) , scissors.width * 0.2, scissors.height * 0.2);
 }
 
 int getYour(char key) {
