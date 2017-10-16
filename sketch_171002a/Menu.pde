@@ -7,8 +7,8 @@ void gameText() {
 
   gameTitle = "Rock Paper Scissors";
 
-  buttonOneText = "single player";
-  buttonTwoText = "two player";
+  buttonOneText = "Normal Mode";
+  buttonTwoText = "God Mode";
   
   fill(255, 0, 0);
   textSize(45);
@@ -93,8 +93,8 @@ void mousePressed() {
   }
 }
 
-//void keyPressed() {
-//  if (key == 'r' || key == 'R') {
-//    state = 0;
-//  }
-//}
+void keyPressed() {
+  if (key == 'r' || key == 'R') {
+    state = 0;
+  }
+}
