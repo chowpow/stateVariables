@@ -16,6 +16,7 @@ void setup() {
   
   rockOffset = rock.width * rockScale;
   papSciOffset = paper.width * papSciScale;
+  
 }
 
 void draw() {
