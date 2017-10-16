@@ -93,8 +93,8 @@ void mousePressed() {
   }
 }
 
-void keyPressed() {
-  if (key == 'r' || key == 'R') {
-    state = 0;
-  }
-}
+//void keyPressed() {
+//  if (key == 'r' || key == 'R') {
+//    state = 0;
+//  }
+//}

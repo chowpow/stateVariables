@@ -1,5 +1,5 @@
 PImage rock, paper, scissors; //<>//
-int playerSelection, result;
+int playerSelection, result, your;
 float rockScale, papSciScale, rockOffset, papSciOffset;
 String singlePlayerScore, singlePlayerInstructions;
 
@@ -14,61 +14,65 @@ void singlePlayerText() {
 
 
 void keyReleased() {
+  result = decideWinner(your, computerChoice());
+  your = getYour(key);
+
   if (state == 1) {
-    
+
     background(200, 50, 50);
-    if (key == '1') {
+    if (your == 1) {
       drawRockPlayerOne();
-      playerSelection = 1;
-      computerChoice();
-    } else if (key == '2') {
+    } else if (your == 2) {
       drawPaperPlayerOne();
-      playerSelection = 2;
-      computerChoice();
-    } else if (key == '3') {
-      playerSelection = 3;
-      computerChoice();
-  }
-  
+    } else if (your == 3) {
+      drawScissorsPlayerOne();
+    }
 
-  if (computerChoice() == 1) {
-    drawRockPlayerTwo();
-  } else if (computerChoice() == 2) {
-    drawPaperPlayerTwo();
-  } else if (computerChoice() == 3) {
-    drawScissorsPlayerTwo();
-  }
 
-  decideWinner(playerSelection, computerChoice());
+    if (computerChoice() == 1) {
+      drawRockPlayerTwo();
+    } else if (computerChoice() == 2) {
+      drawPaperPlayerTwo();
+    } else if (computerChoice() == 3) {
+      drawScissorsPlayerTwo();
+    }
+
+    if (result == 3) {
+      println("tie");
+    } else if (result == 1) {
+      println("you win");
+    } else if (result == 2) {
+      println("computer wins");
+    }
   }
 }
 
 int computerChoice() {
-  return int(random(1, 4));
+  if (your == 1) {
+    return 2;
+  }
+  if (your == 2) {
+    return 3;
+  }
+  if (your == 3) {
+    return 1;
+  }
+  return 0;
 }
 
 int decideWinner(int playerChoice, int computerChoice) {
   // 1 = player wins 2 = computer wins 3 = tie
   if (playerChoice == computerChoice) {
-    println("tie");
     return 3;
   } else if (playerChoice == 2 && computerChoice == 1) {
-    println("player wins");
     return 1;
   } else if (playerChoice == 1 && computerChoice == 2) {
-    println("computer wins");
     return 2;
   } else if (playerChoice == 2 && computerChoice == 3) {
-    println("computer wins");
     return 2;
   } else if (playerChoice == 3 && computerChoice == 2) {
-    println("player wins");
-    return 1;
-  } else if (playerChoice == 1 && computerChoice == 2) {
-    println("player wins");
     return 1;
   } else if (playerChoice == 3 && computerChoice == 1) {
-    println("computer wins");
     return 2;
   }
   return 0;
@@ -96,4 +100,14 @@ void drawPaperPlayerTwo() {
 
 void drawScissorsPlayerTwo() {
   image(scissors, (width / 2) + scissors.width * 0.2, (height / 2) + scissors.height * 0.2, scissors.width * 0.2, scissors.height * 0.2);
+}
+
+int getYour(char key) {
+  if (key == '1')
+    return 1;
+  if (key == '2')
+    return 2;
+  if (key == '3')
+    return 3;
+  return -1;
 }
