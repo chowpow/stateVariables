@@ -4,6 +4,7 @@ float rockScale, papSciScale, rockOffset, papSciOffset;
 String singlePlayerScore, singlePlayerInstructions;
 
 void singlePlayerText() {
+  //text for the game
   singlePlayerInstructions = "Instructions: 1 for rock, \n   2 for paper, 3 for scissors.";
   textSize(20);
   text(singlePlayerInstructions, 150, 650);
@@ -12,6 +13,7 @@ void singlePlayerText() {
 void keyReleased() {
   result = decideWinner(playerSelection, computerChoice());
 
+  //the player plays, 1 for rock 2 for paper 3 for scissors
   background(200, 50, 50);
   if (key == '1') {
     drawRockPlayerOne();
@@ -27,15 +29,14 @@ void keyReleased() {
   computerTurn();
   resultOfTurn();
 
-  if (playerScore > 5) {
-    state = 3;
-  } else if (computerScore > 5) {
-    state = 4;
+  //if the computer scores 5 the game ends
+  if (computerScore == 5) {
+    state = 2;
   }
 }
 
-
 void computerTurn() {
+  //depending on what the computer picks it draws the pictures
   if (computerChoice() == 1) {
     drawRockPlayerTwo();
   } else if (computerChoice() == 2) {
@@ -46,6 +47,7 @@ void computerTurn() {
 }
 
 void resultOfTurn() {
+  //prints the corresponding text depending on who wins
   if (result == 3) {
     text("Tie", width/ 2, height / 2);
   } else if (result == 1) {
@@ -57,18 +59,13 @@ void resultOfTurn() {
   } else {
     text("Error", width / 2, height / 2);
   }
+  //updating score
   singlePlayerScore = "Your score: "+ playerScore +". \n       Opponent Score: "+computerScore +".";
   text(singlePlayerScore, 100, 50);
 }
 
-
-
 int computerChoice() {
-  if (state == 1) {
-    if (playerSelection == 1 || playerSelection == 2 || playerSelection == 3) {
-  
-  
-  
+  //the computer chooses based on the player choice, it always wins
   if (playerSelection == 1) {
     return 2;
   }
@@ -81,10 +78,8 @@ int computerChoice() {
   return 0;
 }
 
-int godMode() {
-  
-
 int decideWinner(int playerChoice, int computerChoice) {
+  //all scenarios of the game
   // 1 = player wins 2 = computer wins 3 = tie
   if (playerChoice == computerChoice) {
     return 3;
@@ -101,6 +96,8 @@ int decideWinner(int playerChoice, int computerChoice) {
   }
   return 0;
 }
+
+//draws all the images
 
 void drawRockPlayerOne() {
   image(rock, (width / 2) - rockOffset, (height / 2), rock.width * rockScale, rock.height * rockScale);
