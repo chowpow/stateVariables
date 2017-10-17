@@ -4,7 +4,6 @@ float buttonOneTop, buttonOneBottom, buttonLeftSide, buttonRightSide;
 
 void gameText() {
   //game text of the menu screen
-
   gameTitle = "Rock Paper Scissors";
   buttonOneText = "Enter if you dare";
   
@@ -17,12 +16,10 @@ void gameText() {
   fill(255);
   textSize(30);
   text(buttonOneText, width / 2, 360);
-    
 }
 
 void displayButtonOne() {
   //drawing the button
-  
   buttonWidth = 300;
   buttonHeight = 80;
   buttonX = (width / 2) - (buttonWidth / 2);
@@ -42,7 +39,7 @@ void displayButtonOne() {
 }
 
 boolean mouseOverButtonOne() {
-  
+  //determines if the mouse is over the button
   return ((mouseX > buttonLeftSide) &&
   (mouseX < buttonRightSide) &&
   (mouseY > buttonOneTop) &&
@@ -54,12 +51,13 @@ void mousePressed() {
   if (mouseOverButtonOne()) {
     background(200, 50, 50);
     state = 1;
-  }
+  }  
 }
 
 void keyPressed() {
+  //if r is pressed the game goes back to the menu
   if (key == 'r') {
     state = 0;
-    computerScore = 0;
   }
+
 }

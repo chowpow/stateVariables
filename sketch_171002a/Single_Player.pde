@@ -11,28 +11,30 @@ void singlePlayerText() {
 }
 
 void keyReleased() {
-
   //the player plays, 1 for rock 2 for paper 3 for scissors
   background(200, 50, 50);
-  if (key == '1') {
-    drawRockPlayerOne();
-    playerSelection = 1;
-  } else if (key == '2') {
-    drawPaperPlayerOne();
-    playerSelection = 2;
-  } else if (key == '3') {
-    drawScissorsPlayerOne();
-    playerSelection = 3;
-  }
+  if (state == 1) {
+    if (key == '1') {
+      drawRockPlayerOne();
+      playerSelection = 1;
+    } else if (key == '2') {
+      drawPaperPlayerOne();
+      playerSelection = 2;
+    } else if (key == '3') {
+      drawScissorsPlayerOne();
+      playerSelection = 3;
+    }
+    
+    //computer plays and the winner is decided
+    computerTurn();
+    result = decideWinner(playerSelection, computerChoice());
+    resultOfTurn();
 
-  computerTurn();
-  result = decideWinner(playerSelection, computerChoice());
-  resultOfTurn();
-
-  //if the computer scores 5 the game ends
-  if (computerScore == 5) {
-    state = 2;
-    computerScore = 0;
+    //if the computer scores 5 the game ends
+    if (computerScore == 5) {
+      state = 2;
+      computerScore = 0;
+    }
   }
 }
 

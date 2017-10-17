@@ -20,11 +20,10 @@ void setup() {
   
   rockOffset = rock.width * rockScale;
   papSciOffset = paper.width * papSciScale;
-  
 }
 
 void draw() {
-
+  //draws the game screen depending on the state
   if (state == 0) {
     background(100, 200, 50);
     displayButtonOne();
